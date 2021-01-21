@@ -12,11 +12,10 @@ export const fetchAnime = (name) => dispatch => {
         .get(`https://api.jikan.moe/v3/search/anime?q=${name}`)
         .then((response)=>{
             dispatch({ type:FETCH_ANIME_SUCCESS, payload: response.data.results});
-            console.log(response.data.results);
         })
         .catch(err => {
             console.log(err)
-            //dispatch({ type:FETCH_ANIME_FAILURE, payload:err});
+            dispatch({ type:FETCH_ANIME_FAILURE, payload:err});
         });
 }
 
