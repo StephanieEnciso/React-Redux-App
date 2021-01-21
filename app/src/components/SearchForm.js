@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { fetchAnime } from '../actions';
 import { connect } from 'react-redux';
+import AnimeList from './AnimeList';
 
 function SearchForm(props) {
     const [formValue, setformValue] = useState('');
@@ -13,6 +14,14 @@ function SearchForm(props) {
     const clickHandler = (event) => {
         event.preventDefault();
         props.fetchAnime(formValue);
+    }
+
+    if (props.error) {
+        return <p>We got an error: {props.error}</p>;
+    }
+    
+    if (props.isFetching) {
+        return <p>Fetching your Anime!</p>;
     }
 
 
@@ -28,13 +37,16 @@ function SearchForm(props) {
                 />
                 <button onClick = {clickHandler}>Search</button>
             </form>
+            <div>
+                <AnimeList key = {props.animes}/>
+            </div>
         </div>
     )
 };
 
 const mapStateToProps = state => {
     return {
-        animes: [state.animes],
+        animes: state.animes,
         isFetching: state.isFetching,
         error: state.error,
     }
