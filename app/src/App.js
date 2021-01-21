@@ -1,4 +1,4 @@
-import './App.css';
+import './css/App.css';
 import React from 'react';
 import SearchForm from './components/SearchForm';
 
@@ -6,10 +6,11 @@ import SearchForm from './components/SearchForm';
 
 function App() {
 
-  
-
   return (
     <div className="App">
+      <header className = 'App-header'>
+      <h1>Find Your Favorite Anime!</h1>
+      </header>
      <SearchForm/>
     </div>
   );

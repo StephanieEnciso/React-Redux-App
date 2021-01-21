@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { fetchAnime } from '../actions';
 import { connect } from 'react-redux';
 import AnimeList from './AnimeList';
+import '../css/SearchForm.css';
 
 function SearchForm(props) {
     const [formValue, setformValue] = useState('');
