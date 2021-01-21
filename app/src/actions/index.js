@@ -6,6 +6,8 @@ export const FETCH_ANIME_START = 'FETCH_ANIME_START';
 export const FETCH_ANIME_SUCCESS = 'FETCH_ANIME_SUCCESS';
 export const FETCH_ANIME_FAILURE = 'FETCH_ANIME_FAILURE';
 
+// action creator axios request
+
 export const fetchAnime = (name) => dispatch => {
     dispatch({ type:FETCH_ANIME_START});
     axios 
@@ -18,5 +20,3 @@ export const fetchAnime = (name) => dispatch => {
             dispatch({ type:FETCH_ANIME_FAILURE, payload:err});
         });
 }
-
-fetchAnime();
